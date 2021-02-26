@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:xlmns="http://schemas.android.com/apk/res/android" xlmns:layout_height="match_parent" xlmns:layout_width="match_parent">
+
+    <fragment
+        xlmns:id="@+id/maps"
+        xlmns:name="com.google.android.gms.maps.SupportMapFragment"
+        xlmns:layout_width="match_parent"
+        xlmns:layout_height="665dp"
+        xlmns:layout_alignParentStart="true"
+        xlmns:layout_alignParentTop="true"
+        xlmns:layout_marginTop="66dp"
+        tools:context=".MapsFragment" />
+
+    <SearchView
+        xlmns:id="@+id/searchLocation"
+        xlmns:layout_width="match_parent"
+        xlmns:layout_height="74dp"
+        xlmns:queryHint=" search..."
+        xlmns:iconifiedByDefault="false"
+        />
+</RelativeLayout>
+
+
+
+
