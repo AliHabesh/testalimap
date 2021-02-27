@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">test ali map</string>
     <string name="map">MAP</string>
+
+    <array name="capacity">
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+    </array>
+
+    <array name="type">
+        <item>party</item>
+        <item>sport</item>
+    </array>
 </resources>

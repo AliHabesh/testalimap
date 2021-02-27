@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -19,7 +20,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -30,6 +34,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,10 +54,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     GoogleMap gMap;
     SearchView search = null;
     static ArrayList<TestClass> eventSpawn = new ArrayList<TestClass>(){{
-        add(new TestClass("Party", 56.04646740, 12.69451210));
-        add(new TestClass("Sport", 56.16, 13.77));
-        add(new TestClass("Party", 55.61, 13 ));
-        add(new TestClass("Sport", 59.04646740, 11));
+        add(new TestClass("Party", 56.04646740, 12.69451210, "This is some random info"));
+        add(new TestClass("Sport", 56.16, 13.77, "This is a sport event "));
+        add(new TestClass("Party", 55.61, 13, "This is a party event"));
+        add(new TestClass("Sport", 59.04646740, 11, "hello how are you"));
     }};
 
 
@@ -76,6 +81,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
+        ImageView createEvent = getActivity().findViewById(R.id.createEventButton);
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEvent();
+            }
+        });
     }
 
     @Override
@@ -91,11 +104,36 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         searchLocation();
         LatLng sydney = new LatLng(lati, longi);
         gMap = googleMap;
+        gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String title=marker.getTitle();
+                final AlertDialog.Builder eventPopup = new AlertDialog.Builder(getActivity()); //Creates dialog
+                final LayoutInflater inflater = LayoutInflater.from(getActivity());
+                final View dialogView = inflater.inflate(R.layout.popup,null);
+                final AlertDialog dialog;
+                eventPopup.setView(dialogView);
+                eventPopup.setTitle("Event");
+                eventPopup.setIcon(R.drawable.party);
+                dialog = eventPopup.create();
+                dialog.show();
+
+                TextView tvInfo=dialogView.findViewById(R.id.info);
+                tvInfo.setText(title);
+
+                return true;
+            }
+        });
         gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
+
+
+
+
                 MarkerOptions markerOptions = new MarkerOptions();
                 try {
+
                     addNameToMarkerOnMap(latLng.latitude, latLng.longitude);
                 } catch (IOException e) {
                     System.out.println("NO AREA FOUND !");
@@ -124,6 +162,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
+
             fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
@@ -205,7 +244,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     .title(eventSpawn.get(i).getEventType())
                     .icon(BitmapDescriptorFactory.fromBitmap(customizeImageToBitMap(event))));
         }
+
+
+
     }
+
+
 
     public Bitmap customizeImageToBitMap(int resourcePath){ //Example input: "R.id.sport"
         int height = 50; //Default
@@ -214,6 +258,17 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         Bitmap b = bitmapdraw.getBitmap();
 
         return Bitmap.createScaledBitmap(b, width, height, false);
+    }
+
+    public void createEvent(){
+
+        final AlertDialog.Builder eventPopup = new AlertDialog.Builder(getActivity()); //Creates dialog
+        final LayoutInflater inflater = LayoutInflater.from(getActivity());
+        final View dialogView = inflater.inflate(R.layout.new_test,null); //Inflate the actual test.xml file
+        final AlertDialog dialog;
+        eventPopup.setView(dialogView);
+        dialog = eventPopup.create();
+        dialog.show();
     }
 
 }

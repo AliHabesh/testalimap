@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eventpic"
+        android:layout_alignParentRight="true"
+        />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event"
+            android:textColor="#050000"
+            android:textSize="24sp"
+             />
+
+        <Spinner
+            android:id="@+id/eventTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+             />
+
+        <TextView
+            android:id="@+id/CreateDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="Description box...."
+             />
+
+        <Button
+            android:id="@+id/createEvent"
+            android:layout_width="112dp"
+            android:layout_height="50dp"
+            android:text="Create"
+             />
+
+        <Spinner
+            android:id="@+id/eventCapacitySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/style_spinner"
+            />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Capacity:"
+            android:textColor="#0B0000"
+            android:textSize="14sp"
+         />
+
+</RelativeLayout>
+
