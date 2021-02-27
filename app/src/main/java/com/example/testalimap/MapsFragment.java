@@ -82,13 +82,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         }
 
-        ImageView createEvent = getActivity().findViewById(R.id.createEventButton);
-        createEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createEvent();
-            }
-        });
+        createEvent(); //The plus button at the top-right corner of the map method
+
+
     }
 
     @Override
@@ -261,14 +257,21 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     }
 
     public void createEvent(){
+        ImageView createEvent = getActivity().findViewById(R.id.createEventButton);
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder eventPopup = new AlertDialog.Builder(getActivity()); //Creates dialog
+                final LayoutInflater inflater = LayoutInflater.from(getActivity());
+                final View dialogView = inflater.inflate(R.layout.newnewtest,null); //Inflate the actual newnewtest.xml file
+                final AlertDialog dialog;
+                eventPopup.setView(dialogView);
+                eventPopup.setTitle("Create Event");
+                dialog = eventPopup.create();
+                dialog.show();
+            }
+        });
 
-        final AlertDialog.Builder eventPopup = new AlertDialog.Builder(getActivity()); //Creates dialog
-        final LayoutInflater inflater = LayoutInflater.from(getActivity());
-        final View dialogView = inflater.inflate(R.layout.new_test,null); //Inflate the actual test.xml file
-        final AlertDialog dialog;
-        eventPopup.setView(dialogView);
-        dialog = eventPopup.create();
-        dialog.show();
     }
 
 }

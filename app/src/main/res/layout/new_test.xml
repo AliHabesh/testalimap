@@ -11,15 +11,17 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/party"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_calendar"
         android:layout_alignParentRight="true"
         />
     <Button
         android:id="@+id/createEvent"
         android:layout_width="112dp"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:text="Create"
         android:layout_alignParentRight="true"
         android:layout_below="@id/imageView4"
@@ -31,22 +33,13 @@
         android:orientation="vertical"
 >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Event"
-        android:textColor="#050000"
-        android:textSize="24sp"
-        />
-
-    <Spinner
-        android:id="@+id/eventTypeSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:entries="@array/type"
-        />
+        <Spinner
+            android:id="@+id/eventTypeSpinner"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/style_spinner"
+            android:entries="@array/type" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -81,7 +74,7 @@
         android:id="@+id/CreateDescription"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/et_background"
         android:hint="Description box...."
         android:inputType="textCapSentences|textMultiLine"
