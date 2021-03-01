@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "838955187616",
+    "firebase_url": "https://newproject-94e9a-default-rtdb.firebaseio.com",
+    "project_id": "newproject-94e9a",
+    "storage_bucket": "newproject-94e9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838955187616:android:895a567da3c30237bd38c5",
+        "android_client_info": {
+          "package_name": "com.example.testalimap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838955187616-sbrg6j541evuh74ir9sus4s19oed26ql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnF1MBtrIZwFn0hgbhGZ_fhaLoLZU8pTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838955187616-sbrg6j541evuh74ir9sus4s19oed26ql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

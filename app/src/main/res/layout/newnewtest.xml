@@ -1,37 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_calendar" />
+    <Button
+        android:id="@+id/createEventB"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageView4"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/createButton" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginVertical="20dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_calendar" />
-
-        <Button
-            android:id="@+id/createEvent"
-            android:layout_width="112dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/createButton" />
+        <EditText
+            android:id="@+id/addressToLatLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="Address"
+            android:inputType="textPersonName" />
 
         <Spinner
             android:id="@+id/eventTypeSpinner"
-            android:layout_width="171dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="-200dp"
             android:background="@drawable/style_spinner"
             android:entries="@array/type" />
 
@@ -58,6 +63,8 @@
                 android:layout_marginStart="12dp"
                 android:background="@drawable/style_spinner"
                 android:entries="@array/capacity" />
+
+
         </TableRow>
 
 
@@ -78,6 +85,8 @@
             android:textSize="18sp"
 
             />
+
+
 
 
     </LinearLayout>

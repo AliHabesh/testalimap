@@ -41,7 +41,7 @@
              />
 
         <Button
-            android:id="@+id/createEvent"
+            android:id="@+id/createEventB"
             android:layout_width="112dp"
             android:layout_height="50dp"
             android:text="Create"
